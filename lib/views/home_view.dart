@@ -7,7 +7,11 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Weather App')),
+      appBar: AppBar(
+        title: const Text('Weather App'),
+        centerTitle: false,
+        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.search))],
+      ),
       body: const NoWeatherBody(),
     );
   }
