@@ -12,6 +12,7 @@ class SearchView extends StatelessWidget {
         child: TextField(
           decoration: InputDecoration(
             hintText: "Enter a city name",
+            icon: const Icon(Icons.search),
             label: const Text("City Name"),
             contentPadding: const EdgeInsets.symmetric(
               horizontal: 16,
