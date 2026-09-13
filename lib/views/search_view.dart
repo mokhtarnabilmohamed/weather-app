@@ -19,7 +19,7 @@ class SearchView extends StatelessWidget {
             WeatherModel weatherModel = await WeatherService(
               Dio(),
             ).getCurrentWeather(cityName: value);
-            log(weatherModel.cityName);
+            Navigator.pop(context);
           },
           decoration: InputDecoration(
             hintText: "Enter a city name",
