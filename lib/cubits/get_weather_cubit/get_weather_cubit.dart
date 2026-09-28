@@ -13,9 +13,9 @@ class GetWeatherCubit extends Cubit<WeatherState> {
       WeatherModel weatherModel = await WeatherService(
         Dio(),
       ).getCurrentWeather(cityName: cityName);
-      emit(WeatherLoadedState());
+      emit(WeatherLoadedState(weatherModel: weatherModel));
     } catch (e) {
-      emit(WeatherFailureState());
+      emit(WeatherFailureState(errorMessage: e.toString()));
     }
   }
 }

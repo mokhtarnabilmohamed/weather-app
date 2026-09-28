@@ -1,6 +1,6 @@
 class WeatherModel {
   final String cityName;
-  final String searchTime;
+  final DateTime updateTime;
   final String weatherCondition;
   final String conditionImageUrl;
   final double avgTemp;
@@ -9,7 +9,7 @@ class WeatherModel {
 
   WeatherModel({
     required this.cityName,
-    required this.searchTime,
+    required this.updateTime,
     required this.weatherCondition,
     required this.conditionImageUrl,
     required this.avgTemp,
@@ -20,11 +20,11 @@ class WeatherModel {
   factory WeatherModel.fromJson(json) {
     return WeatherModel(
       cityName: json['location']["name"],
-      searchTime: json["current"]["last_updated"],
+      updateTime: DateTime.parse(json["current"]["last_updated"]),
       weatherCondition:
           json["forecast"]["forecastday"][0]["day"]["condition"]["text"],
       conditionImageUrl:
-          json["forecast"]["forecastday"][0]["day"]["condition"]["icon"],
+          "https:${json["forecast"]["forecastday"][0]["day"]["condition"]["icon"]}",
       avgTemp: json["forecast"]["forecastday"][0]["day"]["avgtemp_c"],
       maxTemp: json["forecast"]["forecastday"][0]["day"]["maxtemp_c"],
       minTemp: json["forecast"]["forecastday"][0]["day"]["mintemp_c"],
